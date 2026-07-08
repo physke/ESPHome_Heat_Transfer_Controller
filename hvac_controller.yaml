@@ -1,0 +1,49 @@
+substitutions:
+  devicename: hvac-controller
+  friendly_name: HVAC Controller
+
+esphome:
+  name: ${devicename}
+  friendly_name: ${friendly_name}
+  comment: ESPHome replacement for ESPEasy HVAC controller
+  project:
+    name: jason.hvac_controller
+    version: "0.1.0"
+
+esp32:
+  board: esp32-s2-saola-1
+  framework:
+    type: esp-idf
+
+logger:
+
+api:
+  encryption:
+    key: !secret api_key
+
+ota:
+  - platform: esphome
+    password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+  min_auth_mode: WPA2
+
+  manual_ip:
+    static_ip: 192.168.80.123
+    gateway: 192.168.80.2
+    subnet: 255.255.255.0
+    dns1: 192.168.80.2
+    dns2: 8.8.8.8
+
+captive_portal:
+
+time:
+  - platform: homeassistant
+    id: ha_time
+
+packages:
+  hardware: !include hardware.yaml
+  sensors: !include sensors.yaml  
