@@ -4,36 +4,37 @@
 #
 ####################################################
 
+one_wire:
 #
 # Lounge Temperature
 # DS18B20 on GPIO5
 #
-
-one_wire:
   - platform: gpio
     pin: GPIO5
     id: lounge_onewire
+#
+# Ceiling Temperature
+# DS18B20 on GPIO7
+#
+  - platform: gpio
+    pin: GPIO7
+    id: ceiling_onewire
+
 
 sensor:
-
+#
+# Lounge Temperature
+# DS18B20 on GPIO5
+#
   - platform: dallas_temp
     one_wire_id: lounge_onewire
     name: "Lounge Temperature"
     id: lounge_temperature
     update_interval: 60s
-
 #
 # Ceiling Temperature
 # DS18B20 on GPIO7
 #
-
-one_wire:
-  - platform: gpio
-    pin: GPIO7
-    id: ceiling_onewire
-
-sensor:
-
   - platform: dallas_temp
     one_wire_id: ceiling_onewire
     name: "Ceiling Temperature"
