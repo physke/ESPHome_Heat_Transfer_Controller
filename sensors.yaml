@@ -1,0 +1,121 @@
+####################################################
+#
+# SENSORS
+#
+####################################################
+
+#
+# Lounge Temperature
+# DS18B20 on GPIO5
+#
+
+one_wire:
+  - platform: gpio
+    pin: GPIO5
+    id: lounge_onewire
+
+sensor:
+
+  - platform: dallas_temp
+    one_wire_id: lounge_onewire
+    name: "Lounge Temperature"
+    id: lounge_temperature
+    update_interval: 60s
+
+#
+# Ceiling Temperature
+# DS18B20 on GPIO7
+#
+
+one_wire:
+  - platform: gpio
+    pin: GPIO7
+    id: ceiling_onewire
+
+sensor:
+
+  - platform: dallas_temp
+    one_wire_id: ceiling_onewire
+    name: "Ceiling Temperature"
+    id: ceiling_temperature
+    update_interval: 60s
+
+####################################################
+# Kitchen Temperature / Humidity
+####################################################
+
+  - platform: si7021
+    temperature:
+      name: "Kitchen Temperature"
+      id: kitchen_temperature
+
+    humidity:
+      name: "Kitchen Humidity"
+      id: kitchen_humidity
+
+    update_interval: 60s
+
+####################################################
+# Bedroom temperatures from Home Assistant
+####################################################
+
+  - platform: homeassistant
+    entity_id: sensor.bedroom1_temperature
+    id: bedroom1_temperature
+    internal: true
+
+  - platform: homeassistant
+    entity_id: sensor.bedroom2_temperature
+    id: bedroom2_temperature
+    internal: true
+
+  - platform: homeassistant
+    entity_id: sensor.bedroom3_temperature
+    id: bedroom3_temperature
+    internal: true
+
+####################################################
+# Calculated values (for future use)
+####################################################
+
+  - platform: template
+    name: "Bedroom Total Temperature"
+    id: bedroom_total_temperature
+
+    lambda: |-
+      return id(bedroom1_temperature).state +
+             id(bedroom2_temperature).state +
+             id(bedroom3_temperature).state;
+
+    update_interval: 60s
+
+####################################################
+# Future calculated PWM values
+####################################################
+
+  - platform: template
+    name: "Bedroom 1 PWM"
+    id: bedroom1_pwm_value
+
+    lambda: |-
+      return 0;
+
+    update_interval: 60s
+
+  - platform: template
+    name: "Bedroom 2 PWM"
+    id: bedroom2_pwm_value
+
+    lambda: |-
+      return 0;
+
+    update_interval: 60s
+
+  - platform: template
+    name: "Bedroom 3 PWM"
+    id: bedroom3_pwm_value
+
+    lambda: |-
+      return 0;
+
+    update_interval: 60s
