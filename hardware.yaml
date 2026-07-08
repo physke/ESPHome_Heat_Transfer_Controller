@@ -1,0 +1,72 @@
+####################################################
+#
+# Hardware
+#
+####################################################
+
+i2c:
+  id: bus_a
+  sda: GPIO33
+  scl: GPIO35
+  scan: true
+  frequency: 400kHz
+
+####################################################
+# PCA9685
+####################################################
+
+pca9685:
+  - id: pca9685_hvac
+    address: 0x40
+    frequency: 250
+
+####################################################
+# Heat Transfer Relay
+####################################################
+
+switch:
+  - platform: gpio
+    id: heat_transfer_relay
+    name: Heat Transfer Relay
+
+    pin:
+      number: GPIO13
+      inverted: false
+
+    restore_mode: ALWAYS_OFF
+
+####################################################
+# Ceiling Exhaust Relay
+####################################################
+
+  - platform: gpio
+    id: ceiling_relay
+    name: Ceiling Exhaust Relay
+
+    pin:
+      number: GPIO11
+      inverted: false
+
+    restore_mode: ALWAYS_OFF
+
+####################################################
+# PWM Outputs
+####################################################
+
+output:
+
+  - platform: pca9685
+    id: bedroom2_pwm
+    channel: 0
+
+  - platform: pca9685
+    id: bedroom1_pwm
+    channel: 1
+
+  - platform: pca9685
+    id: bedroom3_pwm
+    channel: 2
+
+  - platform: pca9685
+    id: ceiling_pwm
+    channel: 3
