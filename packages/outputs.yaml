@@ -1,0 +1,103 @@
+####################################################
+#
+# OUTPUTS
+#
+####################################################
+
+#
+# Bedroom 2 Fan (PCA9685 Channel 0)
+#
+output:
+  - platform: pca9685
+    id: bedroom2_pwm
+    channel: 0
+
+#
+# Bedroom 1 Fan (Channel 1)
+#
+  - platform: pca9685
+    id: bedroom1_pwm
+    channel: 1
+
+#
+# Bedroom 3 Fan (Channel 2)
+#
+  - platform: pca9685
+    id: bedroom3_pwm
+    channel: 2
+
+#
+# Ceiling Exhaust Fan (Channel 3)
+#
+  - platform: pca9685
+    id: ceiling_pwm
+    channel: 3
+
+####################################################
+# TEST OUTPUTS
+#
+# These appear as sliders in HA during Phase 1.
+# They will disappear in Phase 2.
+####################################################
+
+number:
+
+  - platform: template
+    name: "Bedroom 1 PWM Test"
+    id: bedroom1_pwm_test
+
+    optimistic: true
+
+    min_value: 0
+    max_value: 10000
+
+    step: 100
+
+    set_action:
+      - lambda: |-
+          id(bedroom1_pwm).set_level(x / 10000.0f);
+
+  - platform: template
+    name: "Bedroom 2 PWM Test"
+    id: bedroom2_pwm_test
+
+    optimistic: true
+
+    min_value: 0
+    max_value: 10000
+
+    step: 100
+
+    set_action:
+      - lambda: |-
+          id(bedroom2_pwm).set_level(x / 10000.0f);
+
+  - platform: template
+    name: "Bedroom 3 PWM Test"
+    id: bedroom3_pwm_test
+
+    optimistic: true
+
+    min_value: 0
+    max_value: 10000
+
+    step: 100
+
+    set_action:
+      - lambda: |-
+          id(bedroom3_pwm).set_level(x / 10000.0f);
+
+  - platform: template
+    name: "Ceiling Fan PWM Test"
+    id: ceiling_pwm_test
+
+    optimistic: true
+
+    min_value: 0
+    max_value: 10000
+
+    step: 100
+
+    set_action:
+      - lambda: |-
+          id(ceiling_pwm).set_level(x / 10000.0f);
