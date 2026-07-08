@@ -1,0 +1,59 @@
+####################################################
+#
+# DIAGNOSTICS
+#
+####################################################
+
+sensor:
+
+#
+# WiFi
+#
+
+  - platform: wifi_signal
+    name: "WiFi Signal"
+    update_interval: 60s
+
+#
+# Uptime
+#
+
+  - platform: uptime
+    name: "Uptime"
+
+#
+# Internal MCU Temperature
+#
+
+  - platform: internal_temperature
+    name: "ESP32 Temperature"
+
+text_sensor:
+
+#
+# ESPHome Version
+#
+
+  - platform: version
+    name: ESPHome Version
+
+#
+# IP Address
+#
+
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+
+    ssid:
+      name: Connected SSID
+
+#
+# Controller Version
+#
+
+  - platform: template
+    name: HVAC Controller Version
+
+    lambda: |-
+      return {"0.1.0"};
