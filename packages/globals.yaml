@@ -1,0 +1,59 @@
+####################################################
+#
+# GLOBAL VARIABLES
+#
+####################################################
+
+globals:
+
+#
+# Bedroom temperatures
+#
+
+  - id: bedroom1_temperature
+    type: float
+    restore_value: no
+    initial_value: "20.0"
+
+  - id: bedroom2_temperature
+    type: float
+    restore_value: no
+    initial_value: "20.0"
+
+  - id: bedroom3_temperature
+    type: float
+    restore_value: no
+    initial_value: "20.0"
+
+#
+# Calculated PWM
+#
+
+  - id: bedroom1_pwm_value
+    type: int
+    restore_value: no
+    initial_value: "0"
+
+  - id: bedroom2_pwm_value
+    type: int
+    restore_value: no
+    initial_value: "0"
+
+  - id: bedroom3_pwm_value
+    type: int
+    restore_value: no
+    initial_value: "0"
+
+#
+# Controller state
+#
+
+  - id: heat_transfer_enabled
+    type: bool
+    restore_value: no
+    initial_value: "false"
+
+  - id: ceiling_auto_mode
+    type: bool
+    restore_value: yes
+    initial_value: "true"
