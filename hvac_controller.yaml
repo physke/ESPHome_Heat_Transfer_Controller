@@ -38,12 +38,12 @@ wifi:
     dns1: 192.168.80.2
     dns2: 8.8.8.8
 
-captive_portal:
+#captive_portal:
 
 time:
   - platform: homeassistant
     id: ha_time
 
 packages:
-  hardware: !include hardware.yaml
-  sensors: !include sensors.yaml  
+  hardware: !include heat_transfer/hardware.yaml
+  sensors: !include heat_transfer/sensors.yaml
