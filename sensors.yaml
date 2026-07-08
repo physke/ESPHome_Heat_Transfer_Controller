@@ -45,7 +45,8 @@ sensor:
 # Kitchen Temperature / Humidity
 ####################################################
 
-  - platform: si7021
+  - platform: htu21d
+    model: SI7021
     temperature:
       name: "Kitchen Temperature"
       id: kitchen_temperature
