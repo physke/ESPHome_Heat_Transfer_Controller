@@ -1,0 +1,47 @@
+####################################################
+#
+# OUTPUTS
+#
+####################################################
+
+output:
+
+#
+# Bedroom 2 Fan
+# PCA9685 Channel 0
+#
+
+  - platform: pca9685
+    id: bedroom2_pwm
+    pca9685_id: pca9685_hvac
+    channel: 0
+
+#
+# Bedroom 1 Fan
+# PCA9685 Channel 1
+#
+
+  - platform: pca9685
+    id: bedroom1_pwm
+    pca9685_id: pca9685_hvac
+    channel: 1
+
+#
+# Bedroom 3 Fan
+# PCA9685 Channel 2
+#
+
+  - platform: pca9685
+    id: bedroom3_pwm
+    pca9685_id: pca9685_hvac
+    channel: 2
+
+#
+# Ceiling Exhaust Fan
+# PCA9685 Channel 3
+#
+
+  - platform: pca9685
+    id: ceiling_pwm
+    pca9685_id: pca9685_hvac
+    channel: 3
