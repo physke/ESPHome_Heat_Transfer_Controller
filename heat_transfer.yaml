@@ -47,5 +47,4 @@ time:
 
 packages:
   hardware: !include heat_transfer/hardware.yaml
-  sensors: !include heat_transfer/sensors.yaml 
-  sensors: !include heat_transfer/outputs.yaml 
+  sensors: !include heat_transfer/sensors.yaml
