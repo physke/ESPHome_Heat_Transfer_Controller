@@ -4,9 +4,9 @@ Phase 1
 
 [x] Hardware
 
-[ ] Sensors
+[x] Sensors
 
-[ ] Outputs
+[x] Outputs
 
 [ ] Diagnostics
 
