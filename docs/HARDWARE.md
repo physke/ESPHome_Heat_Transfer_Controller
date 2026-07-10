@@ -1,0 +1,14 @@
+Item	Value
+MCU	ESP8266 ESP-12E (Wemos D1 Mini compatible)
+I²C SDA	GPIO4
+I²C SCL	GPIO5
+PCA9685	0x41
+Lounge DS18B20	GPIO16
+Ceiling DS18B20	GPIO14
+SI7021	I²C
+Heat Transfer Relay	GPIO15
+Ceiling Exhaust Relay	GPIO13
+Bedroom 1 PWM	PCA9685 Ch1
+Bedroom 2 PWM	PCA9685 Ch0
+Bedroom 3 PWM	PCA9685 Ch2
+Ceiling PWM	PCA9685 Ch3
